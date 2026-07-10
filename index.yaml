@@ -1,0 +1,18 @@
+apiVersion: marlin/v1
+kind: Registry
+
+# Install/distribution index for devxtoolkit-v1. Schema mirrors
+# marlin-registry / marlin/packages/marlin/registry's format so this can be
+# resolved by Marlin's package manager once it exists (not yet built —
+# Wave 5, INIT.19.xx), or read directly in the meantime.
+
+packages:
+  - name: devxtoolkit-v1
+    version: 1.1.0
+    description: PowerShell module of ergonomic developer-workflow commands — project/config scaffolding, CI/docs/license generation, environment scaffolding
+    manifest: manifests/devxtoolkit-v1.yaml
+    tags:
+      - powershell
+      - dev-tooling
+      - scaffolding
+      - cli

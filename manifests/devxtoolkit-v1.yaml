@@ -1,0 +1,39 @@
+apiVersion: marlin/v1
+kind: Package
+
+metadata:
+  name: devxtoolkit-v1
+  version: 1.1.0
+  description: PowerShell module of ergonomic developer-workflow commands — project/config scaffolding, CI/docs/license generation, Python/Node environment scaffolding
+  author: jj-ervin
+  homepage: https://github.com/dxp-org/devxtoolkit-v1-x
+  license: MIT
+  tags:
+    - powershell
+    - dev-tooling
+    - scaffolding
+    - cli
+
+platforms:
+  windows:
+    artifact:
+      type: git-source
+      repo: dxp-org/devxtoolkit-v1-x
+      ref: main
+      # Source-distributed (PowerShell scripts), not a compiled binary —
+      # no fixed release artifact/checksum to pin here. Pin `ref` to a
+      # tag (e.g. v1.2.0) once this repo has cut an actual release.
+    install:
+      - step: command
+        shell: pwsh
+        run: git clone https://github.com/dxp-org/devxtoolkit-v1-x.git "{install_dir}"
+      - step: command
+        shell: pwsh
+        run: pwsh -NoProfile -File "{install_dir}\src\core\DevXToolkit-Installer-v1.0.ps1"
+        # Existing installer writes the Import-Module line into the
+        # caller's $PROFILE — see devxtoolkit-v1-x/src/core/DevXToolkit-Installer-v1.0.ps1
+    uninstall:
+      - step: remove_dir
+        path: "{install_dir}"
+      # Does not currently remove the Import-Module line from $PROFILE —
+      # manual cleanup needed until the installer supports uninstall.

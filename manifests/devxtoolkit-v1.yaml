@@ -3,7 +3,7 @@ kind: Package
 
 metadata:
   name: devxtoolkit-v1
-  version: 1.1.0
+  version: 1.2.0
   description: PowerShell module of ergonomic developer-workflow commands — project/config scaffolding, CI/docs/license generation, Python/Node environment scaffolding
   author: jj-ervin
   homepage: https://github.com/dxp-org/devxtoolkit-v1-x
@@ -19,14 +19,14 @@ platforms:
     artifact:
       type: git-source
       repo: dxp-org/devxtoolkit-v1-x
-      ref: main
+      ref: v1.2.0
       # Source-distributed (PowerShell scripts), not a compiled binary —
-      # no fixed release artifact/checksum to pin here. Pin `ref` to a
-      # tag (e.g. v1.2.0) once this repo has cut an actual release.
+      # no fixed release artifact/checksum to pin here. The ref is pinned
+      # to the release tag so installs do not drift with main.
     install:
       - step: command
         shell: pwsh
-        run: git clone https://github.com/dxp-org/devxtoolkit-v1-x.git "{install_dir}"
+        run: git clone --branch v1.2.0 --depth 1 https://github.com/dxp-org/devxtoolkit-v1-x.git "{install_dir}"
       - step: command
         shell: pwsh
         run: pwsh -NoProfile -File "{install_dir}\src\core\DevXToolkit-Installer-v1.0.ps1"

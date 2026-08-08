@@ -20,9 +20,7 @@ install logic.
 
 ## Status
 
-Manifest currently points at `ref: main`, not a pinned release tag —
-`devxtoolkit-v1-x` hasn't cut an actual GitHub release yet. Update `ref` to
-a version tag (e.g. `v1.2.0`) once one exists.
+Manifest points at the pinned `v1.2.0` source tag for reproducible installs.
 
 ## License
 

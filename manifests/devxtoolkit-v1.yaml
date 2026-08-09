@@ -6,7 +6,7 @@ metadata:
   version: 1.4.0
   description: PowerShell module of ergonomic developer-workflow commands — project/config scaffolding, CI/docs/license generation, Python/Node environment scaffolding
   author: jj-ervin
-  homepage: https://github.com/dxp-org/devxtoolkit-v1-x
+  homepage: https://github.com/dxp-org/devxtoolkit-v1-x-registry
   license: MIT
   tags:
     - powershell
@@ -17,53 +17,40 @@ metadata:
 platforms:
   windows:
     artifact:
-      type: git-source
-      repo: dxp-org/devxtoolkit-v1-x
-      ref: v1.4.0
-      # Source-distributed (PowerShell scripts), not a compiled binary —
-      # no fixed release artifact/checksum to pin here. The ref is pinned
-      # to the release tag so installs do not drift with main.
+      type: powershell-gallery
+      name: DevXToolkit
+      version: 1.4.0
     install:
       - step: command
         shell: pwsh
-        run: git clone --branch v1.4.0 --depth 1 https://github.com/dxp-org/devxtoolkit-v1-x.git "{install_dir}"
+        run: Install-PSResource -Name DevXToolkit -Version 1.4.0 -Repository PSGallery -Scope CurrentUser -TrustRepository
+    uninstall:
       - step: command
         shell: pwsh
-        run: pwsh -NoProfile -File "{install_dir}\src\core\DevXToolkit-Installer-v1.0.ps1" -AddToProfile -Confirm:$false
-        # Profile registration is explicit because the v1.3 installer is
-        # verification-only unless -AddToProfile is supplied.
-    uninstall:
-      - step: remove_dir
-        path: "{install_dir}"
-      # Does not currently remove the Import-Module line from $PROFILE —
-      # manual cleanup needed until the installer supports uninstall.
+        run: Uninstall-PSResource -Name DevXToolkit -Version 1.4.0 -Scope CurrentUser
   linux:
     artifact:
-      type: git-source
-      repo: dxp-org/devxtoolkit-v1-x
-      ref: v1.4.0
+      type: powershell-gallery
+      name: DevXToolkit
+      version: 1.4.0
     install:
       - step: command
         shell: pwsh
-        run: git clone --branch v1.4.0 --depth 1 https://github.com/dxp-org/devxtoolkit-v1-x.git "{install_dir}"
+        run: Install-PSResource -Name DevXToolkit -Version 1.4.0 -Repository PSGallery -Scope CurrentUser -TrustRepository
+    uninstall:
       - step: command
         shell: pwsh
-        run: pwsh -NoProfile -File "{install_dir}/src/core/DevXToolkit-Installer-v1.0.ps1" -AddToProfile -Confirm:$false
-    uninstall:
-      - step: remove_dir
-        path: "{install_dir}"
+        run: Uninstall-PSResource -Name DevXToolkit -Version 1.4.0 -Scope CurrentUser
   macos:
     artifact:
-      type: git-source
-      repo: dxp-org/devxtoolkit-v1-x
-      ref: v1.4.0
+      type: powershell-gallery
+      name: DevXToolkit
+      version: 1.4.0
     install:
       - step: command
         shell: pwsh
-        run: git clone --branch v1.4.0 --depth 1 https://github.com/dxp-org/devxtoolkit-v1-x.git "{install_dir}"
+        run: Install-PSResource -Name DevXToolkit -Version 1.4.0 -Repository PSGallery -Scope CurrentUser -TrustRepository
+    uninstall:
       - step: command
         shell: pwsh
-        run: pwsh -NoProfile -File "{install_dir}/src/core/DevXToolkit-Installer-v1.0.ps1" -AddToProfile -Confirm:$false
-    uninstall:
-      - step: remove_dir
-        path: "{install_dir}"
+        run: Uninstall-PSResource -Name DevXToolkit -Version 1.4.0 -Scope CurrentUser

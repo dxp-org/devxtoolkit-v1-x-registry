@@ -3,7 +3,7 @@ kind: Package
 
 metadata:
   name: devxtoolkit-v1
-  version: 1.2.0
+  version: 1.3.0
   description: PowerShell module of ergonomic developer-workflow commands — project/config scaffolding, CI/docs/license generation, Python/Node environment scaffolding
   author: jj-ervin
   homepage: https://github.com/dxp-org/devxtoolkit-v1-x
@@ -19,21 +19,51 @@ platforms:
     artifact:
       type: git-source
       repo: dxp-org/devxtoolkit-v1-x
-      ref: v1.2.0
+      ref: v1.3.0
       # Source-distributed (PowerShell scripts), not a compiled binary —
       # no fixed release artifact/checksum to pin here. The ref is pinned
       # to the release tag so installs do not drift with main.
     install:
       - step: command
         shell: pwsh
-        run: git clone --branch v1.2.0 --depth 1 https://github.com/dxp-org/devxtoolkit-v1-x.git "{install_dir}"
+        run: git clone --branch v1.3.0 --depth 1 https://github.com/dxp-org/devxtoolkit-v1-x.git "{install_dir}"
       - step: command
         shell: pwsh
-        run: pwsh -NoProfile -File "{install_dir}\src\core\DevXToolkit-Installer-v1.0.ps1"
-        # Existing installer writes the Import-Module line into the
-        # caller's $PROFILE — see devxtoolkit-v1-x/src/core/DevXToolkit-Installer-v1.0.ps1
+        run: pwsh -NoProfile -File "{install_dir}\src\core\DevXToolkit-Installer-v1.0.ps1" -AddToProfile -Confirm:$false
+        # Profile registration is explicit because the v1.3 installer is
+        # verification-only unless -AddToProfile is supplied.
     uninstall:
       - step: remove_dir
         path: "{install_dir}"
       # Does not currently remove the Import-Module line from $PROFILE —
       # manual cleanup needed until the installer supports uninstall.
+  linux:
+    artifact:
+      type: git-source
+      repo: dxp-org/devxtoolkit-v1-x
+      ref: v1.3.0
+    install:
+      - step: command
+        shell: pwsh
+        run: git clone --branch v1.3.0 --depth 1 https://github.com/dxp-org/devxtoolkit-v1-x.git "{install_dir}"
+      - step: command
+        shell: pwsh
+        run: pwsh -NoProfile -File "{install_dir}/src/core/DevXToolkit-Installer-v1.0.ps1" -AddToProfile -Confirm:$false
+    uninstall:
+      - step: remove_dir
+        path: "{install_dir}"
+  macos:
+    artifact:
+      type: git-source
+      repo: dxp-org/devxtoolkit-v1-x
+      ref: v1.3.0
+    install:
+      - step: command
+        shell: pwsh
+        run: git clone --branch v1.3.0 --depth 1 https://github.com/dxp-org/devxtoolkit-v1-x.git "{install_dir}"
+      - step: command
+        shell: pwsh
+        run: pwsh -NoProfile -File "{install_dir}/src/core/DevXToolkit-Installer-v1.0.ps1" -AddToProfile -Confirm:$false
+    uninstall:
+      - step: remove_dir
+        path: "{install_dir}"

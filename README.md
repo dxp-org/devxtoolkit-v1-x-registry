@@ -20,8 +20,8 @@ install logic.
 
 ## Status
 
-Manifest points at the pinned `v1.3.0` source tag for reproducible installs on
-Windows, Linux, and macOS. DevXToolkit `1.3.0` is also published to PSGallery.
+Manifest points at the pinned `v1.4.0` source tag for reproducible installs on
+Windows, Linux, and macOS. DevXToolkit `1.4.0` is also published to PSGallery.
 
 ## License
 

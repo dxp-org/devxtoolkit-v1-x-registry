@@ -3,7 +3,7 @@ kind: Package
 
 metadata:
   name: devxtoolkit-v1
-  version: 1.5.0
+  version: 1.5.1
   description: PowerShell module of ergonomic developer-workflow commands — project/config scaffolding, CI/docs/license generation, Python/Node environment scaffolding
   author: jj-ervin
   homepage: https://github.com/dxp-org/devxtoolkit-v1-x-registry
@@ -19,38 +19,38 @@ platforms:
     artifact:
       type: powershell-gallery
       name: DevXToolkit
-      version: 1.5.0
+      version: 1.5.1
     install:
       - step: command
         shell: pwsh
-        run: Install-PSResource -Name DevXToolkit -Version 1.5.0 -Repository PSGallery -Scope CurrentUser -TrustRepository
+        run: Install-PSResource -Name DevXToolkit -Version 1.5.1 -Repository PSGallery -Scope CurrentUser -TrustRepository
     uninstall:
       - step: command
         shell: pwsh
-        run: Uninstall-PSResource -Name DevXToolkit -Version 1.5.0 -Scope CurrentUser
+        run: Uninstall-PSResource -Name DevXToolkit -Version 1.5.1 -Scope CurrentUser
   linux:
     artifact:
       type: powershell-gallery
       name: DevXToolkit
-      version: 1.5.0
+      version: 1.5.1
     install:
       - step: command
         shell: pwsh
-        run: Install-PSResource -Name DevXToolkit -Version 1.5.0 -Repository PSGallery -Scope CurrentUser -TrustRepository
+        run: Install-PSResource -Name DevXToolkit -Version 1.5.1 -Repository PSGallery -Scope CurrentUser -TrustRepository
     uninstall:
       - step: command
         shell: pwsh
-        run: Uninstall-PSResource -Name DevXToolkit -Version 1.5.0 -Scope CurrentUser
+        run: Uninstall-PSResource -Name DevXToolkit -Version 1.5.1 -Scope CurrentUser
   macos:
     artifact:
       type: powershell-gallery
       name: DevXToolkit
-      version: 1.5.0
+      version: 1.5.1
     install:
       - step: command
         shell: pwsh
-        run: Install-PSResource -Name DevXToolkit -Version 1.5.0 -Repository PSGallery -Scope CurrentUser -TrustRepository
+        run: Install-PSResource -Name DevXToolkit -Version 1.5.1 -Repository PSGallery -Scope CurrentUser -TrustRepository
     uninstall:
       - step: command
         shell: pwsh
-        run: Uninstall-PSResource -Name DevXToolkit -Version 1.5.0 -Scope CurrentUser
+        run: Uninstall-PSResource -Name DevXToolkit -Version 1.5.1 -Scope CurrentUser

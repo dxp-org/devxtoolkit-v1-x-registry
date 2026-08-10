@@ -17,7 +17,7 @@ stable distribution/support surface for installers and portfolio tooling.
 
 ## Status
 
-Manifest points at PowerShell Gallery version `1.5.1` for reproducible installs
+Manifest points at PowerShell Gallery version `1.6.0` for reproducible installs
 on Windows, Linux, and macOS.
 
 ## License

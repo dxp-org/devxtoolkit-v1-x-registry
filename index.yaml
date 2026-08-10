@@ -8,8 +8,8 @@ kind: Registry
 
 packages:
   - name: devxtoolkit-v1
-    version: 1.5.1
-    description: PowerShell module of ergonomic developer-workflow commands — project/config scaffolding, CI/docs/license generation, environment scaffolding
+    version: 1.6.0
+    description: PowerShell module of ergonomic developer-workflow commands — project/config scaffolding, CI/docs/license generation, Python/Node environment scaffolding
     manifest: manifests/devxtoolkit-v1.yaml
     tags:
       - powershell
